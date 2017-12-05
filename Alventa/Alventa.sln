@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlventaDB", "AlventaDB\AlventaDB.csproj", "{EEAD1853-23A2-43D5-8E46-664DC0B1F15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlventaMVC", "AlventaMVC\AlventaMVC.csproj", "{A7C48A12-513F-4D17-BA63-6AA9AD2355CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEAD1853-23A2-43D5-8E46-664DC0B1F15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAD1853-23A2-43D5-8E46-664DC0B1F15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAD1853-23A2-43D5-8E46-664DC0B1F15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAD1853-23A2-43D5-8E46-664DC0B1F15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C48A12-513F-4D17-BA63-6AA9AD2355CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C48A12-513F-4D17-BA63-6AA9AD2355CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C48A12-513F-4D17-BA63-6AA9AD2355CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C48A12-513F-4D17-BA63-6AA9AD2355CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
