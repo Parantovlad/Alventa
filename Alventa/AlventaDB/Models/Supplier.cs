@@ -1,4 +1,4 @@
-namespace AlventaDB.EF
+namespace AlventaDB.Models
 {
     using System;
     using System.Collections.Generic;

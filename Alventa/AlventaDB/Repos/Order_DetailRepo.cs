@@ -1,4 +1,4 @@
-﻿using AlventaDB.EF;
+﻿using AlventaDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

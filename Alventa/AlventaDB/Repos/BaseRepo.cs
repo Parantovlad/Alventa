@@ -13,10 +13,12 @@ namespace AlventaDB.Repos
         public AlventaEntities Context { get; } = new AlventaEntities();
         protected DbSet<T> Table;
 
-        public T GetOne(int? id) => Table.Find(id);
-        public Task<T> GetOneAsync(int? id) => Table.FindAsync(id);
         public List<T> GetAll() => Table.ToList();
         public Task<List<T>> GetAllAsync() => Table.ToListAsync();
 
+        public void Dispose()
+        {
+            Context.Dispose();
+        }
     }
 }

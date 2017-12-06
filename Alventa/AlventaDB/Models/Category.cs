@@ -1,4 +1,4 @@
-namespace AlventaDB.EF
+namespace AlventaDB.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,22 +6,27 @@ namespace AlventaDB.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class CustomerDemographic
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustomerDemographic()
+        public Category()
         {
-            Customers = new HashSet<Customer>();
+            Products = new HashSet<Product>();
         }
 
-        [Key]
-        [StringLength(10)]
-        public string CustomerTypeID { get; set; }
+        public int CategoryID { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string CategoryName { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string CustomerDesc { get; set; }
+        public string Description { get; set; }
+
+        [Column(TypeName = "image")]
+        public byte[] Picture { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

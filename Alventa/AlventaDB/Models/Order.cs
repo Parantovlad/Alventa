@@ -1,4 +1,4 @@
-namespace AlventaDB.EF
+namespace AlventaDB.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace AlventaDB.EF
 
         public int? EmployeeID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? OrderDate { get; set; }
 
         public DateTime? RequiredDate { get; set; }
