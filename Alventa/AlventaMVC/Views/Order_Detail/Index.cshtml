@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AlventaDB.Models.Order_Detail>
+﻿@model PagedList.IPagedList<AlventaDB.Models.Order_Detail>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Order";
@@ -6,28 +7,37 @@
 }
 
 <h2>Отчёт по продажам </h2>
+<form action="/Order_Detail/Details" method="get">
+    <div>
+        <label for="from">С</label>
+        <input type="text" id="from" name="from">
+        <label for="to">по</label>
+        <input type="text" id="to" name="to">
+        <input type="submit" value="Отправить" />
+    </div>
+    
+</form>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.OrderID)
+            @Html.DisplayName("Номер заказа")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Order.OrderDate)
+            @Html.DisplayName("Дата заказа")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductID)
+            @Html.DisplayName("Артикул товара")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Product.ProductName)
+            @Html.DisplayName("Название товара")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.DisplayName("Количество реализованных единиц товара")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+            @Html.DisplayName("Цена реализации за единицу продукции")
         </th>
-        <th>Total Price</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -50,10 +60,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.UnitPrice)
         </td>
-        <td id="totalPrice">
-            &nbsp;
-        </td>
     </tr>
 }
 
 </table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+

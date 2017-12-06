@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using AlventaDB.EF;
 using AlventaDB.Models;
 using AlventaDB.Repos;
+using PagedList.Mvc;
+using PagedList;
 
 namespace AlventaMVC.Controllers
 {
@@ -17,13 +19,14 @@ namespace AlventaMVC.Controllers
     {
         private readonly Order_DetailRepo repo = new Order_DetailRepo();
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? page)
         {
-            var order_Detail = from od in await repo.GetAllAsync()
-                               where od.Quantity > 100
-                               select od;
-            return View(order_Detail);
-            //return View(await repo.GetAllAsync());
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+
+            var order_Detail = await repo.GetAllAsync();
+
+            return View(order_Detail.ToPagedList(pageNumber,pageSize));
         }
 
         public async Task<ActionResult> Details(string startDate, string finishDate)
@@ -42,7 +45,7 @@ namespace AlventaMVC.Controllers
                 return HttpNotFound();
             }
 
-            return View(order_Detail);
+            return View("Index", order_Detail);
         }
 
         protected override void Dispose(bool disposing)
