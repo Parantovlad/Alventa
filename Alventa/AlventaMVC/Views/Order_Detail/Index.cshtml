@@ -7,16 +7,25 @@
 }
 
 <h2>Отчёт по продажам </h2>
-<form action="/Order_Detail/Details" method="get">
+<div>
     <div>
-        <label for="from">С</label>
-        <input type="text" id="from" name="from">
-        <label for="to">по</label>
-        <input type="text" id="to" name="to">
-        <input type="submit" value="Отправить" />
+        <form action="/Order_Detail/Index" method="post">
+            <label for="from">С</label>
+            <input type="text" id="from" name="from" />
+            <label for="to">по</label>
+            <input type="text" id="to" name="to" />
+            <input type="submit" value="Запрос" />
+        </form>
     </div>
-    
-</form>
+    <div>
+        @using (Ajax.BeginForm("Send", new AjaxOptions { UpdateTargetId = "results" }))
+        {
+            <input type="email" id="email" name="email" />
+            <input type="submit" value="Отправить на почту" />
+        }
+        <div id="results"></div>
+    </div>
+</div>
 
 <table class="table">
     <tr>
@@ -40,28 +49,29 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Order.OrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+        </tr>
+    }
 
 </table>
 
