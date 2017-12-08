@@ -22,7 +22,7 @@
         @using (Ajax.BeginForm("Send", new AjaxOptions { UpdateTargetId = "results" }))
         {
             <input type="email" class="form-control float-left" aria-describedby="emailHelp" placeholder="Enter email" id="email" name="email" />
-            <input type="submit" class="btn btn-primary float-left" value="Отправить на почту" />
+            <input type="submit" class="btn btn-primary float-left" id="send" value="Отправить на почту" />
         }
         <div id="results"></div>
     </div>
