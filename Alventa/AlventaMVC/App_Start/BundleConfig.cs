@@ -28,7 +28,7 @@ namespace AlventaMVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/PagedList.css",
                       "~/Content/themes/base/jquery-ui.css",
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-theme.min.css",
                       "~/Content/site.css"));
         }
     }
